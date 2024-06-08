@@ -33,6 +33,7 @@ describe("v2/ functionality", () => {
 		*/
 
 		expect(response.body.data.movie).toBe("Dune");
+		expect(response.body.data.movie).toBeTruthy();
 	})
 
 });
