@@ -1,0 +1,26 @@
+name: Express Server Testing
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  servertest:
+    name: Install project and run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v4
+
+      - name: Set up NodeJS in the Action runner
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm run test
+        env:
+          CI: true
